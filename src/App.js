@@ -1,25 +1,16 @@
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  const title = 'Welcome to the new blog';
+  const likes = 50;
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className='Content'>
+        <h1>{title}</h1>
+        <p>liked {likes} times</p>
+      </div>
     </div>
   );
 }
 
-export default App;
+export default App; // Export component so that we can use it in other files
