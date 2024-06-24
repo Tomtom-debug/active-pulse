@@ -1,16 +1,35 @@
-import './App.css';
+import Navbar from './Navbar';
+import Home from './Home';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Create from './Create';
+import BlogDetails from './BlogDetails';
+import WrongEndpoint from './WrongEndpoint';
 
 function App() {
-  const title = 'Welcome to the new blog';
-  const likes = 50;
   return (
-    <div className="App">
-      <div className='Content'>
-        <h1>{title}</h1>
-        <p>liked {likes} times</p>
+    <Router>
+      <div className="App">
+        <Navbar />
+        <div className="content">
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route path="/create">
+              <Create />
+            </Route>
+            <Route path="/blogs/:id">
+              <BlogDetails />
+            </Route>
+            {/* This must be last so that it doesn't match any endpoint */}
+            <Route path = '*'> 
+              <WrongEndpoint/>
+            </Route>
+          </Switch>
+        </div>
       </div>
-    </div>
+    </Router>
   );
 }
 
-export default App; // Export component so that we can use it in other files
+export default App;
